@@ -25,12 +25,12 @@
         },
     },
     "variables": {
-        "vnetId": "[resourceId(resourceGroup().id,'Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
+        "virtualNetworkName": "[concat(resourceGroup().id, '-nw')]",
+        "vnetId": "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]",
         "virtualMachineName": "[concat(resourceGroup().id, '-vm')]",
         "diagnosticsStorageAccountName": "[concat(resourceGroup().id, '-diagName')]",
         "networkSecurityGroupName": "[concat(resourceGroup().id, '-nsg')]",
-        "virtualNetworkName": "[concat(resourceGroup().id, '-nw')]",
         "networkInterfaceName": "[concat(resourceGroup().id, '-nic')]",
         "publicIpAddressName": "[concat(resourceGroup().id, '-ip')]",
         "uniqueDnsLabelPrefix": "[concat('store', uniquestring(resourceGroup().id))]"
