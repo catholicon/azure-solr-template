@@ -25,26 +25,25 @@
         }
     },
     "variables": {
-        "virtualNetworkName": "[concat(resourceGroup().id, '-nw')]",
-        "virtualMachineName": "[concat(resourceGroup().id, '-vm')]",
-        "diagnosticsStorageAccountName": "[concat(resourceGroup().id, '-diagName')]",
-        "networkSecurityGroupName": "[concat(resourceGroup().id, '-nsg')]",
-        "networkInterfaceName": "[concat(resourceGroup().id, '-nic')]",
-        "publicIpAddressName": "[concat(resourceGroup().id, '-ip')]",
-        "uniqueDnsLabelPrefix": "[concat('store', uniquestring(resourceGroup().id))]"
+        "virtualNetworkName": "[concat(resourceGroup().name, '-nw')]",
+        "vmName": "[concat(resourceGroup().name, '-vm')]",
+        "networkSecurityGroupName": "[concat(resourceGroup().name, '-nsg')]",
+        "networkInterfaceName": "[concat(resourceGroup().name, '-nic')]",
+        "publicIpAddressName": "[concat(resourceGroup().name, '-ip')]",
+        "uniqueDnsLabelPrefix": "[concat('store', uniquestring(resourceGroup().name))]"
     },
     "resources": [
         {
-            "name": "[variables('virtualMachineName')]",
+            "name": "[variables('vmName')]",
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2017-03-30",
             "location": "[resourceGroup().location]",
             "dependsOn": [
-                "[concat('Microsoft.Network/networkInterfaces/', variables('networkInterfaceName'))]"
+                "[resourceId('Microsoft.Network/networkInterfaces', variables('networkInterfaceName'))]"
             ],
             "properties": {
                 "osProfile": {
-                    "computerName": "[variables('virtualMachineName')]",
+                    "computerName": "[variables('vmName')]",
                     "adminUsername": "[parameters('adminUsername')]",
                     "linuxConfiguration": {
                         "disablePasswordAuthentication": "true",
@@ -82,12 +81,6 @@
                             "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('networkInterfaceName'))]"
                         }
                     ]
-                },
-                "diagnosticsProfile": {
-                    "bootDiagnostics": {
-                        "enabled": true,
-                        "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('diagnosticsStorageAccountName')), '2015-06-15').primaryEndpoints['blob']]"
-                    }
                 }
             }
         },
@@ -104,7 +97,7 @@
                 },
                 "subnets": [
                     {
-                        "name": "[default]",
+                        "name": "default",
                         "properties": {
                             "addressPrefix": "172.16.7.0/24"
                         }
@@ -148,13 +141,13 @@
             "apiVersion": "2017-08-01",
             "location": "[resourceGroup().location]",
             "properties": {
-                "publicIpAllocationMethod": "[Dynamic]",
+                "publicIpAllocationMethod": "Dynamic",
                 "dnsSettings": {
                     "domainNameLabel": "[variables('uniqueDnsLabelPrefix')]"
                 }
             },
             "sku": {
-                "name": "[Basic]"
+                "name": "Basic"
             }
         },
         {
