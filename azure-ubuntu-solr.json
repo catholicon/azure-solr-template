@@ -101,14 +101,14 @@
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
-                        "[172.16.7.0/24]"
+                        "172.16.7.0/24"
                     ]
                 },
                 "subnets": [
                     {
                         "name": "[default]",
                         "properties": {
-                            "addressPrefix": "[172.16.7.0/24]"
+                            "addressPrefix": "172.16.7.0/24"
                         }
                     }
                 ]
