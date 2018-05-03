@@ -121,7 +121,7 @@
                         "name": "ipconfig1",
                         "properties": {
                             "subnet": {
-                                "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName')), '/subnets/', parameters('subnetName'))]"
+                                "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName')), '/subnets/subnet')]"
                             },
                             "privateIPAllocationMethod": "Dynamic",
                             "publicIpAddress": {
