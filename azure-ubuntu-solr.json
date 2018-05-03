@@ -11,12 +11,14 @@
         },
         "adminUsername": {
             "type": "string",
+            "defaultValue": "vsaurabh",
             "metadata": {
                 "description": "User name for the Virtual Machine."
             }
         },
         "adminPublicKey": {
             "type": "string",
+            "defaultValue": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDONXlmhr86xGIaHfVsuM0VMmlz5LqDCTzqALyWXvUR/Gv8UMm0Sji6ZdsNdFaeImeGJiFlbS0utcUc0B3QzX44wuj1AWGKGE4vNfmhU+9MmYjvtqQYIJUarGkGuHKA9j4fOuQX1LfjKrYg5zwekGOxOLJmh7+ziVHLiuAGFINW+gzY0PU+caeWECxNcSiXmsNgNsHebcuov+hq+raTZj8J1+RT5o+0aa7LfJKQt3S68HCh33x/aOUsqaMyZZO1bIihja8TmfpDJti0kYk0tj6woKouKx/a/YaHa/bcGtsqpQCegIC6ftvqAMEOt5cRc13G1i+Wxp/UibePB9jC5tAp vsaurabh@durden",
             "metadata": {
                 "description": "SSH public key"
             }
