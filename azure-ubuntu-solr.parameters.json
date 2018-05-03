@@ -1,0 +1,54 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "eastus2"
+        },
+        "virtualMachineName": {
+            "value": null
+        },
+        "virtualMachineSize": {
+            "value": "Standard_D2s_v3"
+        },
+        "adminUsername": {
+            "value": null
+        },
+        "virtualNetworkName": {
+            "value": null
+        },
+        "networkInterfaceName": {
+            "value": null
+        },
+        "networkSecurityGroupName": {
+            "value": "vsaurabh-solr"
+        },
+        "adminPublicKey": {
+            "value": null
+        },
+        "diagnosticsStorageAccountName": {
+            "value": "aemdatasciencediag708"
+        },
+        "diagnosticsStorageAccountId": {
+            "value": "/subscriptions/0db92958-3ec7-42ed-89dd-ae47666126f5/resourceGroups/aem-data-science/providers/Microsoft.Storage/storageAccounts/aemdatasciencediag708"
+        },
+        "addressPrefix": {
+            "value": "172.16.7.0/24"
+        },
+        "subnetName": {
+            "value": "default"
+        },
+        "subnetPrefix": {
+            "value": "172.16.7.0/24"
+        },
+        "publicIpAddressName": {
+            "value": "vsaurabh-ubuntu-1710-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        }
+    }
+}

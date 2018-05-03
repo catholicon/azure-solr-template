@@ -1,0 +1,8 @@
+{
+  "itemDisplayName": "Deploy an Apache Solr instance",
+  "description": "This template uses the Azure Linux CustomScript extension to deploy an application. It creates an Ubuntu VM and deploys solr instance with a collection named 'oak'.",
+  "summary": "Deploy an Apache Solr instance",
+  "githubUsername": "catholicon",
+  "dateUpdated": "2018-05-03"
+}
+
