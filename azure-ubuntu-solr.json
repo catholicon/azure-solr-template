@@ -23,7 +23,7 @@
         },
     },
     "variables": {
-        "vnetId": "[resourceId('vsaurabh-ubuntu-1710-rg','Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
+        "vnetId": "[resourceId(resourceGroup().id,'Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]",
         "virtualMachineName": "[concat(resourceGroup().id, '-vm')]",
         "diagnosticsStorageAccountName": "[concat(resourceGroup().id, '-diagName')]",
