@@ -214,7 +214,7 @@
               ]
             },
             "protectedSettings": {
-              "commandToExecute": "[concat('sh install_lamp.sh ', parameters('mySqlPassword'))]"
+              "commandToExecute": "bash setup_solr.sh"
             }
           }
         }
