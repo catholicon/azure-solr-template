@@ -30,6 +30,7 @@
         "networkSecurityGroupName": "[concat(resourceGroup().name, '-nsg')]",
         "networkInterfaceName": "[concat(resourceGroup().name, '-nic')]",
         "publicIpAddressName": "[concat(resourceGroup().name, '-ip')]",
+        "subnetName": "subnet",
         "uniqueDnsLabelPrefix": "[concat('store', uniquestring(resourceGroup().name))]"
     },
     "resources": [
@@ -97,7 +98,7 @@
                 },
                 "subnets": [
                     {
-                        "name": "default",
+                        "name": "[variables('subnetName')]",
                         "properties": {
                             "addressPrefix": "172.16.7.0/24"
                         }
@@ -121,7 +122,7 @@
                         "name": "ipconfig1",
                         "properties": {
                             "subnet": {
-                                "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName')), '/subnets/subnet')]"
+                                "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName')), '/subnets/', variables('subnetName'))]"
                             },
                             "privateIPAllocationMethod": "Dynamic",
                             "publicIpAddress": {
