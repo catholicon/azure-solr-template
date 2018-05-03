@@ -22,7 +22,7 @@
             "metadata": {
                 "description": "SSH public key"
             }
-        },
+        }
     },
     "variables": {
         "virtualNetworkName": "[concat(resourceGroup().id, '-nw')]",
