@@ -32,7 +32,8 @@
         "networkSecurityGroupName": "[concat(resourceGroup().id, '-nsg')]",
         "virtualNetworkName": "[concat(resourceGroup().id, '-nw')]",
         "networkInterfaceName": "[concat(resourceGroup().id, '-nic')]",
-        "publicIpAddressName": "[concat(resourceGroup().id, '-ip')]"
+        "publicIpAddressName": "[concat(resourceGroup().id, '-ip')]",
+        "uniqueDnsLabelPrefix": "[concat('store', uniquestring(resourceGroup().id))]"
     },
     "resources": [
         {
@@ -149,7 +150,10 @@
             "apiVersion": "2017-08-01",
             "location": "[resourceGroup().location]",
             "properties": {
-                "publicIpAllocationMethod": "[Dynamic]"
+                "publicIpAllocationMethod": "[Dynamic]",
+                "dnsSettings": {
+                    "domainNameLabel": "[variables('uniqueDnsLabelPrefix')]"
+                }
             },
             "sku": {
                 "name": "[Basic]"
@@ -226,7 +230,7 @@
     "outputs": {
         "adminUsername": {
             "type": "string",
-            "value": "[parameters('adminUsername')]"
-        }
+            "value": "[concat('ssh ', parameters('adminUsername'), '@', variables('uniqueDnsLabelPrefix'), '.', resourceGroup().location, '.cloudapp.azure.com')]"
+         }
     }
 }
