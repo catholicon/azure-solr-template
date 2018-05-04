@@ -180,7 +180,7 @@
                         }
                     },
                     {
-                        "name": "solr_8983",
+                        "name": "solr_8080",
                         "properties": {
                             "priority": 1000,
                             "protocol": "TCP",
@@ -189,7 +189,7 @@
                             "sourceAddressPrefix": "*",
                             "sourcePortRange": "*",
                             "destinationAddressPrefix": "*",
-                            "destinationPortRange": "8983"
+                            "destinationPortRange": "8080"
                         }
                     }
                 ]
