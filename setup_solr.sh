@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt install openjdk-8-jdk
+apt -y install openjdk-8-jdk
 
 SOLR_VERSION=5.5.5
 SOLR_NAME=solr-$SOLR_VERSION
